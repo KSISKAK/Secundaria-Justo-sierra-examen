@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Examen Secundaria Justo Sierra 3-B</title>
+<style>
+  body {
+    background: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+  }
+  h1 {
+    margin-bottom: 40px;
+  }
+  button {
+    background: #f48fb1; /* rosado medio */
+    border: none;
+    padding: 15px 40px;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #e57399;
+  }
+  #screamer {
+    display: none;
+    position: fixed;
+    top:0; left:0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  #screamer img {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+</style>
+</head>
+<body>
+
+<h1>examen secundaria justo sierra 3-B</h1>
+<button id="btnExamen">examen</button>
+
+<div id="screamer">
+  <img src="https://i.imgur.com/f6Qf1ZO.png" alt="Screamer" />
+  <audio id="audioScreamer" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
+</div>
+
+<script>
+  const btn = document.getElementById('btnExamen');
+  const screamerDiv = document.getElementById('screamer');
+  const audio = document.getElementById('audioScreamer');
+
+  btn.addEventListener('click', () => {
+    screamerDiv.style.display = 'flex';
+    audio.play();
+
+    // Opcional: ocultar el screamer después de 5 segundos
+    setTimeout(() => {
+      screamerDiv.style.display = 'none';
+      audio.pause();
+      audio.currentTime = 0;
+    }, 5000);
+  });
+</script>
+
+</body>
+</html>
